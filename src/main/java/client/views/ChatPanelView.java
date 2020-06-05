@@ -1,11 +1,9 @@
 package client.views;
 
-import client.ChatMessengerApp;
-import client.util.Utility;
+import client.controller.ListSelectionListenerApp;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultCaret;
@@ -14,7 +12,6 @@ import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import java.awt.*;
 import java.io.IOException;
-import java.util.Vector;
 
 @Slf4j
 public class ChatPanelView extends AbstractView {
@@ -268,33 +265,13 @@ public class ChatPanelView extends AbstractView {
             DefaultListCellRenderer renderer = (DefaultListCellRenderer) usersJlist.getCellRenderer();
             renderer.setHorizontalAlignment(SwingConstants.CENTER);
 
-            ListSelectionListener listSelectionListener = new ListSelectionListener() {
-                public void valueChanged(ListSelectionEvent listSelectionEvent) {
-                    if(!listSelectionEvent.getValueIsAdjusting()){
-                    JList list = (JList) listSelectionEvent.getSource();
-                    Object selectionValues[] = list.getSelectedValues();
-                    for (int i = 0, n = selectionValues.length; i < n; i++) {
-                            ChatOoO(parent.getModel().getCurrentUser(),(String) selectionValues[i]);
-                            usersJlist.clearSelection();
-                    }
-                    }
-                }
-            };
+            ListSelectionListener listSelectionListener = new ListSelectionListenerApp(parent);
             usersJlist.addListSelectionListener(listSelectionListener);
 
         }
         return usersJlist;
     }
 
-    public final void ChatOoO(String sender, String receiver){
-        parent.getModel().setReceiver(receiver);
-        parent.getModel().setLastMessageId(0);
-        getMessagesTextPane().setText("");
-        parent.getModel().getMessages().clear();
-        getMessagesTextPane().setText(parent.getModel().messagesToString());
-        getMainChatButton().setVisible(true);
-
-    }
 
     public void updateUsersLabel() {
         getUsersLabel().setText("usersOnline: " + parent.getModel().getListModel().size());

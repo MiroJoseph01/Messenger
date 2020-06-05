@@ -1,5 +1,6 @@
 package client.views;
 
+import Server.ChatMessServer;
 import client.ChatMessengerApp;
 
 import javax.swing.*;
@@ -7,11 +8,13 @@ import java.awt.*;
 
 public abstract class AbstractView extends JPanel {
     protected static ChatMessengerApp parent;
-
+    protected static ChatMessServer parentAdmin;
     public static void setParent(ChatMessengerApp parent) {
         AbstractView.parent = parent;
     }
-
+    public static void setParentAdmin(ChatMessServer parent) {
+        AbstractView.parentAdmin = parent;
+    }
     public AbstractView() {
         super();
     }

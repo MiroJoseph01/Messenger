@@ -6,6 +6,7 @@
     <message id="5" moment="16:10:48 08-05-2020" receiver="t2@g.ua" sender="t1@g.ua">Yo</message>
     <message id="6" moment="13:03:14 16-05-2020" receiver="t2@g.ua" sender="t1@g.ua">hello</message>
     <message id="7" moment="13:03:21 16-05-2020" receiver="t2@g.ua" sender="t1@g.ua">its me</message>
-    <message id="8" moment="13:14:00 07-04-2020" receiver="" sender="Me">Exampleі message</message>
+    <message id="8" moment="13:14:00 07-04-2020" receiver="" sender="Me">Example message</message>
+    <message id="9" moment="11:25:20 05-06-2020" receiver="" sender="dsd@f.ua">fdsf</message>
 </messages>
 

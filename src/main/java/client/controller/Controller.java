@@ -1,5 +1,6 @@
 package client.controller;
 
+import Server.AdminView;
 import client.*;
 import client.controller.commands.*;
 import client.model.Model;
@@ -84,6 +85,8 @@ public class Controller implements ActionListener {
                 command = new SendMessageCommand(parent, view);
             }
             break;
+
+
             case LOGOUT_ACTION_COMMAND: {
                 ChatPanelView view = Utility.findParent(
                         (Component) e.getSource(), ChatPanelView.class);
